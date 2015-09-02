@@ -246,7 +246,10 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
     }
 
     // HTTP Method Definitions; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-    self.HTTPMethodsEncodingParametersInURI = [NSSet setWithObjects:@"GET", @"HEAD", @"DELETE", nil];
+    
+    //    SERVICES CAN ALSO RECEIVE BODY IN DELETE IF IT WAS NOT IMPLEMENTED CORRECTLY
+    //    self.HTTPMethodsEncodingParametersInURI = [NSSet setWithObjects:@"GET", @"HEAD", @"DELETE", nil];
+    self.HTTPMethodsEncodingParametersInURI = [NSSet setWithObjects:@"GET", @"HEAD", nil];
 
     self.mutableObservedChangedKeyPaths = [NSMutableSet set];
     for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
